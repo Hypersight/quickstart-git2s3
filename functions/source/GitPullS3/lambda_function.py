@@ -171,6 +171,7 @@ def lambda_handler(event, context):
             except:
                 branch_name = event['body-json']['push']['changes']['new']['name']
                 repo_name = full_name + '/branch/' + branch_name
+                logger.info('found branch name based on Hypersight changes...')
     try:
         remote_url = event['body-json']['project']['git_ssh_url']
     except Exception:
