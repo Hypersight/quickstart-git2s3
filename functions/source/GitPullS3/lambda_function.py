@@ -169,7 +169,7 @@ def lambda_handler(event, context):
                 branch_name = event['body-json']['ref'].replace('refs/heads/', '')
                 repo_name = full_name + '/branch/' + branch_name
             except:
-                branch_name = event['body-json']['push']['changes']['new']['name']
+                branch_name = event['body-json']['push']['changes'][0]['new']['name']
                 repo_name = full_name + '/branch/' + branch_name
                 logger.info('found branch name based on Hypersight changes...')
     try:
